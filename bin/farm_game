@@ -1,0 +1,5 @@
+#!/bin/env ruby
+
+require 'farm_game'
+
+FarmGame::Game.new($stdout).play
