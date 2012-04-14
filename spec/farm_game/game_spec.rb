@@ -91,5 +91,15 @@ module FarmGame
         subject.players_for_square(subject.squares[0]).should include(player)
       end
     end
+
+    describe "#roll_and_move" do
+      it "should move the active player by the result of a dice roll" do
+        player = Player.new :square => subject.squares[0]
+        subject.players << player
+        subject.die.expects(:roll).returns(2)
+        subject.roll_and_move
+        subject.players_for_square(subject.squares[2]).should include(player)
+      end
+    end
   end
 end

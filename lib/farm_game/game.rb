@@ -86,6 +86,10 @@ module FarmGame
       @active_player_id -= players.size if @active_player_id == players.size
     end
 
+    def roll_and_move
+      move_player active_player, die.roll
+    end
+
     private
 
     attr_reader :output
