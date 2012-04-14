@@ -45,11 +45,12 @@ module FarmGame
 
     attr_reader :squares
 
-    def initialize(output = STDOUT)
-      @output = output
+    def initialize(output = STDOUT, input = ARGF)
+      @output, @input = output, input
       @squares = []
       SQUARE_NAMES.each { |name| @squares << Square.new(:name => name) }
       @active_player_id = 0
+      @playing = true
     end
 
     def board
@@ -66,6 +67,12 @@ module FarmGame
 
     def play
       create_players
+      while @playing
+        take_turn
+        refresh
+        finish_turn
+      end
+      board.menu_text = 'Thanks for playing!'
       refresh
     end
 
@@ -92,7 +99,7 @@ module FarmGame
 
     private
 
-    attr_reader :output
+    attr_reader :output, :input
 
     def create_players
       %w{1 2}.each { |name| players << Player.new(:name => name, :square => squares.first) }
@@ -111,6 +118,21 @@ module FarmGame
     def refresh
       `clear`
       board.print output
+    end
+
+    def take_turn
+      board.menu_text << "Would you like to roll? (y/n; 'exit' to quit)"
+      refresh
+      case input.gets.downcase.strip
+      when 'y', 'yes'
+        board.menu_text.clear
+        roll_and_move
+      when 'exit'
+        @playing = false
+      else
+        board.menu_text = "You have to roll!"
+        take_turn
+      end
     end
   end
 end
