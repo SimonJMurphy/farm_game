@@ -72,7 +72,12 @@ module FarmGame
     def pad_string(string, width = 10)
       string = string.dup
       if (0..9).include?(string.length)
-        (width - string.length).times { string << ' ' }
+        required_padding = width - string.length
+        string << ' ' if required_padding.odd?
+        (required_padding/2).times do
+          string << ' '
+          string.insert 0, ' '
+        end
       end
       string
     end
