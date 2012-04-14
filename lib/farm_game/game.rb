@@ -49,6 +49,7 @@ module FarmGame
       @output = output
       @squares = []
       SQUARE_NAMES.each { |name| @squares << Square.new(:name => name) }
+      @active_player_id = 0
     end
 
     def board
@@ -74,6 +75,15 @@ module FarmGame
 
     def move_player(player, distance)
       player.square = squares[new_position(player, distance)]
+    end
+
+    def active_player
+      players[@active_player_id]
+    end
+
+    def finish_turn
+      @active_player_id += 1
+      @active_player_id -= players.size if @active_player_id == players.size
     end
 
     private

@@ -30,13 +30,13 @@ module FarmGame
     it { should have(0).players }
 
     describe "#play" do
+      before { subject.play }
+
       it "should welcome the user to the game" do
-        subject.play
         stringio.string.should include("Welcome")
       end
 
       it "should create two players" do
-        subject.play
         subject.should have(2).players
         players = subject.players
         players[0].name.should be == '1'
@@ -44,8 +44,22 @@ module FarmGame
       end
 
       it "should position all players on the first square" do
-        subject.play
         subject.players_for_square(subject.squares.first).should have(2).players
+      end
+
+      it "should set the first player as active" do
+        subject.active_player.should be subject.players[0]
+      end
+
+      describe "#finish_turn" do
+        it "should cyclicly progress to the next player" do
+          subject.finish_turn
+          subject.active_player.should be subject.players[1]
+          subject.finish_turn
+          subject.active_player.should be subject.players[0]
+          subject.finish_turn
+          subject.active_player.should be subject.players[1]
+        end
       end
     end
 
