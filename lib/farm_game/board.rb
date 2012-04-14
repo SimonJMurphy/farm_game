@@ -13,7 +13,6 @@ module FarmGame
     end
 
     def print(output)
-      `clear`
       output.puts <<-BOARD
 |------------------------------------------------------------------------------------------------------------------------|
 |  Market  |#{sqrname 11}|#{sqrname 12}|#{sqrname 13}|#{sqrname 14}|  Market  |#{sqrname 16}|#{sqrname 17}|#{sqrname 18}|#{sqrname 19}|  Market  |

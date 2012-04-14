@@ -66,7 +66,7 @@ module FarmGame
 
     def play
       create_players
-      board.print output
+      refresh
     end
 
     def players_for_square(square)
@@ -102,6 +102,11 @@ module FarmGame
       pos = position_for_square(player.square) + distance
       pos -= 40 if pos > 39
       pos
+    end
+
+    def refresh
+      `clear`
+      board.print output
     end
   end
 end
