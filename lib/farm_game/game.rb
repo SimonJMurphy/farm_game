@@ -99,7 +99,7 @@ module FarmGame
     end
 
     def position_for_square(square)
-      squares.index(square)
+      squares.index square
     end
 
     def new_position(player, distance)
