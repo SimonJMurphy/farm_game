@@ -34,6 +34,19 @@ module FarmGame
         subject.play
         stringio.string.should include("Welcome")
       end
+
+      it "should create two players" do
+        subject.play
+        subject.should have(2).players
+        players = subject.players
+        players[0].name.should be == '1'
+        players[1].name.should be == '2'
+      end
+
+      it "should position all players on the first square" do
+        subject.play
+        subject.players_for_square(subject.squares.first).should have(2).players
+      end
     end
 
     describe "#players_for_square" do

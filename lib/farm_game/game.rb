@@ -64,6 +64,7 @@ module FarmGame
     end
 
     def play
+      create_players
       board.print output
     end
 
@@ -79,6 +80,10 @@ module FarmGame
     private
 
     attr_reader :output
+
+    def create_players
+      %w{1 2}.each { |name| players << Player.new(:name => name, :square => squares.first) }
+    end
 
     def position_for_square(square)
       squares.index(square)
