@@ -29,26 +29,26 @@ module FarmGame
 |..........|                                         Active player: #{game.active_player.name}                                         |..........|
 |#{sqrname 7}|                                                                                                  |#{sqrname 23}|
 |          |                                                                                                  |          |
-|#{sqrplyrs 7}|          #{pad_string menu_text, 78}          |#{sqrplyrs 23}|
-|..........|                                                                                                  |..........|
-|#{sqrname 6}|                                                                                                  |#{sqrname 24}|
-|          |                                                                                                  |          |
-|#{sqrplyrs 6}|                                                                                                  |#{sqrplyrs 24}|
-|..........|                                                                                                  |..........|
-|  Market  |                                                                                                  |  Market  |
-|#{sqrname 5}|                                                                                                  |#{sqrname 25}|
-|#{sqrplyrs 5}|                                                                                                  |#{sqrplyrs 25}|
-|..........|                                                                                                  |..........|
-|#{sqrname 4}|                                                                                                  |#{sqrname 26}|
-|          |                                                                                                  |          |
-|#{sqrplyrs 4}|                                                                                                  |#{sqrplyrs 26}|
-|..........|                                                                                                  |..........|
-|#{sqrname 3}|                                                                                                  |#{sqrname 27}|
-|          |                                                                                                  |          |
-|#{sqrplyrs 3}|                                                                                                  |#{sqrplyrs 27}|
-|..........|                                                                                                  |..........|
-|#{sqrname 2}|                                                                                                  |#{sqrname 28}|
-|          |                                                                                                  |          |
+|#{sqrplyrs 7}|          #{pad_string menu_text.split("\n")[0], 78}          |#{sqrplyrs 23}|
+|..........|          #{pad_string menu_text.split("\n")[1], 78}          |..........|
+|#{sqrname 6}|          #{pad_string menu_text.split("\n")[2], 78}          |#{sqrname 24}|
+|          |          #{pad_string menu_text.split("\n")[3], 78}          |          |
+|#{sqrplyrs 6}|          #{pad_string menu_text.split("\n")[4], 78}          |#{sqrplyrs 24}|
+|..........|          #{pad_string menu_text.split("\n")[5], 78}          |..........|
+|  Market  |          #{pad_string menu_text.split("\n")[6], 78}          |  Market  |
+|#{sqrname 5}|          #{pad_string menu_text.split("\n")[7], 78}          |#{sqrname 25}|
+|#{sqrplyrs 5}|          #{pad_string menu_text.split("\n")[8], 78}          |#{sqrplyrs 25}|
+|..........|          #{pad_string menu_text.split("\n")[9], 78}          |..........|
+|#{sqrname 4}|          #{pad_string menu_text.split("\n")[10], 78}          |#{sqrname 26}|
+|          |          #{pad_string menu_text.split("\n")[11], 78}          |          |
+|#{sqrplyrs 4}|          #{pad_string menu_text.split("\n")[12], 78}          |#{sqrplyrs 26}|
+|..........|          #{pad_string menu_text.split("\n")[13], 78}          |..........|
+|#{sqrname 3}|          #{pad_string menu_text.split("\n")[14], 78}          |#{sqrname 27}|
+|          |          #{pad_string menu_text.split("\n")[15], 78}          |          |
+|#{sqrplyrs 3}|          #{pad_string menu_text.split("\n")[16], 78}          |#{sqrplyrs 27}|
+|..........|          #{pad_string menu_text.split("\n")[17], 78}          |..........|
+|#{sqrname 2}|          #{pad_string menu_text.split("\n")[18], 78}          |#{sqrname 28}|
+|          |          #{pad_string menu_text.split("\n")[19], 78}          |          |
 |#{sqrplyrs 2}|                                                                                                  |#{sqrplyrs 28}|
 |..........|                                                                                                  |..........|
 |#{sqrname 1}|                                                                                                  |#{sqrname 29}|
@@ -71,6 +71,7 @@ module FarmGame
     end
 
     def pad_string(string, width = 10)
+      string ||= ''
       string = string.dup
       if (0..(width-1)).include?(string.length)
         required_padding = width - string.length
