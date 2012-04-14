@@ -12,7 +12,7 @@ Install the gem:
 
 Begin the game:
 
-    $ gem install farm_game
+    $ farm_game
 
 ## Links:
 * [Source](https://github.com/smurfmeister/farm_game)
