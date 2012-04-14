@@ -2,6 +2,12 @@ require 'spec_helper'
 
 module FarmGame
   describe Game do
+    let(:stringio) { StringIO.new }
+
+    subject do
+      Game.new stringio
+    end
+
     its(:board) { should be_a FarmGame::Board }
 
     it "should always use the same board" do
@@ -12,5 +18,12 @@ module FarmGame
 
     its(:players) { should be_a FarmGame::PlayerCollection }
     it { should have(0).players }
+
+    describe "#play" do
+      it "should welcome the user to the game" do
+        subject.play
+        stringio.string.should include("Welcome")
+      end
+    end
   end
 end
