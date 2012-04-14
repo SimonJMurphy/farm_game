@@ -20,15 +20,15 @@ module FarmGame
 |..........|__________________________________________________________________________________________________|..........|
 |#{sqrname 9}|                                                                                                  |#{sqrname 21}|
 |          |                                                                                                  |          |
-|#{sqrplyrs 9}|                                                                                                  |#{sqrplyrs 21}|
-|..........|                                                                                                  |..........|
-|#{sqrname 8}|                                                                                                  |#{sqrname 22}|
+|#{sqrplyrs 9}|                                           Welcome to                                             |#{sqrplyrs 21}|
+|..........|                                           Farm  Game                                             |..........|
+|#{sqrname 8}|                                             v#{FarmGame::VERSION}                                               |#{sqrname 22}|
 |          |                                                                                                  |          |
 |#{sqrplyrs 8}|                                                                                                  |#{sqrplyrs 22}|
-|..........|                                                                                                  |..........|
-|#{sqrname 7}|                                            Welcome to                                            |#{sqrname 23}|
-|          |                                            Farm  Game                                            |          |
-|#{sqrplyrs 7}|                                              v#{FarmGame::VERSION}                                              |#{sqrplyrs 23}|
+|..........|                                         Active player: #{game.active_player.name}                                         |..........|
+|#{sqrname 7}|                                                                                                  |#{sqrname 23}|
+|          |                                                                                                  |          |
+|#{sqrplyrs 7}|                                                                                                  |#{sqrplyrs 23}|
 |..........|                                                                                                  |..........|
 |#{sqrname 6}|                                                                                                  |#{sqrname 24}|
 |          |                                                                                                  |          |
