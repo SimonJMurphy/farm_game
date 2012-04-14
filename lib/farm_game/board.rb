@@ -1,9 +1,11 @@
 module FarmGame
   class Board
     attr_reader :game, :squares
+    attr_accessor :menu_text
 
     def initialize(game = nil)
       @game = game
+      @menu_text = ''
     end
 
     def squares
@@ -28,7 +30,7 @@ module FarmGame
 |..........|                                         Active player: #{game.active_player.name}                                         |..........|
 |#{sqrname 7}|                                                                                                  |#{sqrname 23}|
 |          |                                                                                                  |          |
-|#{sqrplyrs 7}|                                                                                                  |#{sqrplyrs 23}|
+|#{sqrplyrs 7}|          #{pad_string menu_text, 78}          |#{sqrplyrs 23}|
 |..........|                                                                                                  |..........|
 |#{sqrname 6}|                                                                                                  |#{sqrname 24}|
 |          |                                                                                                  |          |
