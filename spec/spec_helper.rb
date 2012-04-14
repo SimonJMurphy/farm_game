@@ -1,4 +1,5 @@
 require 'mocha'
+require 'farm_game'
 
 Dir[File.dirname(__FILE__) + "/support/**/*.rb"].each {|f| require f}
 
