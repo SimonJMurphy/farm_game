@@ -130,7 +130,7 @@ module FarmGame
       when 'exit'
         @playing = false
       else
-        board.menu_text = "You have to roll!"
+        board.menu_text = "You have to roll! "
         take_turn
       end
     end
