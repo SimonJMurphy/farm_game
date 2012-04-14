@@ -2,10 +2,11 @@ require 'spec_helper'
 
 module FarmGame
   describe Game do
-    let(:stringio) { StringIO.new }
+    let(:output) { StringIO.new }
+    let(:input) { StringIO.new }
 
     subject do
-      Game.new stringio
+      Game.new output, input
     end
 
     its(:board) { should be_a FarmGame::Board }
@@ -33,7 +34,7 @@ module FarmGame
       before { subject.play }
 
       it "should welcome the user to the game" do
-        stringio.string.should include("Welcome")
+        output.string.should include("Welcome")
       end
 
       it "should create two players" do
