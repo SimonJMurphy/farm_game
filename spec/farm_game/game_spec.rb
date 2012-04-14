@@ -59,13 +59,22 @@ module FarmGame
     end
 
     describe "#move_player" do
+      let(:player) { Player.new }
+
+      before { subject.players << player }
+
       it "should move the specified player forward by the number of squares specified" do
-        player = Player.new
-        subject.players << player
         player.square = subject.squares[1]
         subject.move_player player, 4
         subject.players_for_square(subject.squares[1]).should_not include(player)
         subject.players_for_square(subject.squares[5]).should include(player)
+      end
+
+      it "should count from the start once a player passes the start square" do
+        player.square = subject.squares[39]
+        subject.move_player player, 1
+        subject.players_for_square(subject.squares[39]).should_not include(player)
+        subject.players_for_square(subject.squares[0]).should include(player)
       end
     end
   end

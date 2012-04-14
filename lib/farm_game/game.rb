@@ -73,8 +73,7 @@ module FarmGame
     end
 
     def move_player(player, distance)
-      new_position = position_for_square(player.square) + distance
-      player.square = squares[new_position]
+      player.square = squares[new_position(player, distance)]
     end
 
     private
@@ -87,6 +86,12 @@ module FarmGame
 
     def position_for_square(square)
       squares.index(square)
+    end
+
+    def new_position(player, distance)
+      pos = position_for_square(player.square) + distance
+      pos -= 40 if pos > 39
+      pos
     end
   end
 end
