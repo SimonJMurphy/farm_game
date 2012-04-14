@@ -120,7 +120,7 @@ module FarmGame
     end
 
     def refresh
-      `clear`
+      system 'clear'
       board.print output
     end
 
