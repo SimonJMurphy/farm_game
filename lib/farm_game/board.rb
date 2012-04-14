@@ -45,7 +45,7 @@ module FarmGame
 |..........|                                                                                                  |..........|
 |#{sqrname 3}|                                                                                                  |#{sqrname 27}|
 |          |                                                                                                  |          |
-|#{sqrplyrs 4}|                                                                                                  |#{sqrplyrs 27}|
+|#{sqrplyrs 3}|                                                                                                  |#{sqrplyrs 27}|
 |..........|                                                                                                  |..........|
 |#{sqrname 2}|                                                                                                  |#{sqrname 28}|
 |          |                                                                                                  |          |
