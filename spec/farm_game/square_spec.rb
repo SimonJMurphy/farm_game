@@ -1,7 +1,11 @@
 require 'spec_helper'
 
 module FarmGame
-	describe Square do
+  describe Square do
+    let(:name) { "Foo" }
 
-	end
+    subject { Square.new :name => name }
+
+    its(:name) { should be == name }
+  end
 end
