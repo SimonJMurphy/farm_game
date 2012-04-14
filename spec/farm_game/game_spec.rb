@@ -31,7 +31,10 @@ module FarmGame
     it { should have(0).players }
 
     describe "#play" do
-      before { subject.play }
+      before do
+        subject.expects :take_turns
+        subject.play
+      end
 
       it "should welcome the user to the game" do
         output.string.should include("Welcome")

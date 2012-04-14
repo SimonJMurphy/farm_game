@@ -67,13 +67,17 @@ module FarmGame
 
     def play
       create_players
+      take_turns
+      board.menu_text = 'Thanks for playing!'
+      refresh
+    end
+
+    def take_turns
       while @playing
         take_turn
         refresh
         finish_turn
       end
-      board.menu_text = 'Thanks for playing!'
-      refresh
     end
 
     def players_for_square(square)
