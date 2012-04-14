@@ -7,7 +7,7 @@ module FarmGame
     context "with 4 players" do
       before do
         5.times do |n|
-          subject << Player.new(n.to_s)
+          subject << Player.new(:name => n.to_s)
         end
       end
 

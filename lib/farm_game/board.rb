@@ -1,53 +1,13 @@
 module FarmGame
   class Board
-    SQUARE_NAMES = [
-      'Start',
-      'Poultry',
-      'Vegetables',
-      'Supplies',
-      'Fruit Tree',
-      'Livestock',
-      '<=6 Goats',
-      'Breeding',
-      'Crops',
-      '<=3 Cows',
-      'Crops',
-      'Poultry',
-      '<=2 Ewes',
-      'Supplies',
-      'Nursery',
-      'Vegetables',
-      'Ram',
-      'Pot Luck',
-      'Vegetables',
-      '1 Cow',
-      'Fruit',
-      'Poultry',
-      'Crops',
-      'Supplies',
-      'Fruit Tree',
-      'Livestock',
-      '<=4 Ewes',
-      'Breeding',
-      'Vegetables',
-      '<=2 Cows',
-      'Crops',
-      'Poultry',
-      'Goats 2',
-      'Supplies',
-      'Forest',
-      'Vegetables',
-      'Billy Goat',
-      'Pot Luck',
-      'Crops',
-      'Bull'
-    ]
+    attr_reader :game, :squares
 
-    attr_reader :squares
+    def initialize(game = nil)
+      @game = game
+    end
 
-    def initialize
-      @squares = []
-      SQUARE_NAMES.each { |name| @squares << Square.new(:name => name) }
+    def squares
+      game.squares
     end
 
     def print(output)

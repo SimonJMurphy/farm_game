@@ -2,11 +2,11 @@ require 'spec_helper'
 
 module FarmGame
   describe Board do
-    it { should have(40).squares }
+    let(:game) { Game.new }
 
-    its :squares do
-      subject.all? { |s| s.should be_a FarmGame::Square }
-    end
+    subject { Board.new game }
+
+    its(:squares) { should be game.squares }
 
     describe "#sqrname" do
       context "for square 0" do

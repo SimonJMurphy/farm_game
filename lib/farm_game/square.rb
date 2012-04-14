@@ -1,11 +1,9 @@
+require 'farm_game/mass_assignment'
+
 module FarmGame
   class Square
     attr_accessor :name
 
-    def initialize(options = {})
-      options.each_pair do |key, value|
-        self.send :"#{key}=", value
-      end
-    end
+    include MassAssignment
   end
 end
